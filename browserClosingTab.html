@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body onbeforeunload="handleBrowserCloseButton(event);">
+
+<p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
+
+<button onclick="myFunction()">Click me</button>
+
+<p id="demo"></p>
+
+<script type="text/javascript" language="text/javascript">
+function goodbye(e) {
+    if(!e) e = window.event;
+window.open('https://www.google.co.in');
+    //e.cancelBubble is supported by IE - this will kill the bubbling process.
+
+    e.cancelBubble = true;
+    e.returnValue = 'You sure you want to leave?'; //This is displayed on the dialog
+     
+    //e.stopPropagation works in Firefox.
+    if (e.stopPropagation) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+}
+window.onbeforeunload=goodbye; 
+
+function myFunction() {
+     
+      alert('Click me button clicked');
+    
+ }
+</script>
+
+</body>
+</html>
+
+
+
+
+
